@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: medea-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+spec:
+  rules:
+    - host: medea-base.argo.cnfi.dev
+      http:
+        paths:
+          - backend:
+              serviceName: medea
+              servicePort: 8080
+            path: /
+  tls:
+    - hosts:
+        - medea-base.argo.cnfi.dev
+      secretName: medea-tls

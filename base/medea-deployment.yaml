@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medea
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: medea
+  template:
+    metadata:
+      labels:
+        app: medea
+    spec:
+      containers:
+        - image: confinale/medea:latest
+          name: medea
+          ports:
+            - containerPort: 8080
+          env:
+            - name: env
+              value: base
