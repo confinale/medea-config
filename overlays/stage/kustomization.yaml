@@ -6,3 +6,10 @@ resources:
 nameSuffix: -stage
 commonLabels:
   app: medea-stage
+patchesJson6902:
+  - path: ingress-patch.json
+    target:
+      kind: Ingress
+      name: medea-ingress
+      version: v1beta1
+      group: extensions
