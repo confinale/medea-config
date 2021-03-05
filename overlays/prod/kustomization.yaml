@@ -11,3 +11,5 @@ patchesJson6902:
     target:
       kind: Ingress
       name: medea-ingress
+      version: v1beta1
+      group: extensions
