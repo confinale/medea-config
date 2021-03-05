@@ -1,0 +1,23 @@
+name: update deployment config
+
+on:
+  create:
+  push:
+
+jobs:
+
+  try-build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: imranismail/setup-kustomize@v1
+      with:
+        kustomize-version: "3.9.4"
+    
+    - run: 'kustomize build overlays/dev'
+    - run: 'kustomize build overlays/test'
+    - run: 'kustomize build overlays/stage'
+    - run: 'kustomize build overlays/prod'
