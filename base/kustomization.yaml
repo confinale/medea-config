@@ -8,4 +8,4 @@ resources:
 
 images:
 - name: confinale/medea
-  newTag: v0.1.0-1-g99ab2e8
+  newTag: v0.1.0-2-gab829ea
