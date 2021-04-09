@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: medea
 spec:
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -21,5 +21,7 @@ spec:
           env:
             - name: ENV_NAME
               value: base
+            - name: TEST
+              value: 123
       imagePullSecrets:
         - name: regcred
