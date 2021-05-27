@@ -21,5 +21,7 @@ spec:
           env:
             - name: ENV_NAME
               value: base
+            - name: TEST
+              value: a123
       imagePullSecrets:
         - name: regcred
